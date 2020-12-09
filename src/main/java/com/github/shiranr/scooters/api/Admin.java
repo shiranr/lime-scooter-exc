@@ -26,4 +26,17 @@ public class Admin {
         context.getLogger().info(id);
         return request.createResponseBuilder(HttpStatus.OK).body(id).build();
     }
+
+    @FunctionName("create")
+    public HttpResponseMessage create(
+            @HttpTrigger(name = "create",
+                    methods = {HttpMethod.POST},
+                    authLevel = AuthorizationLevel.ANONYMOUS,
+                    route = "scooter/create/{amount}")
+                    HttpRequestMessage<Optional<String>> request,
+            @BindingName("amount") int amount,
+            final ExecutionContext context) {
+        //TODO implement - committing only stubs. Next iteration will include implementation.
+        return request.createResponseBuilder(HttpStatus.OK).body(amount).build();
+    }
 }
