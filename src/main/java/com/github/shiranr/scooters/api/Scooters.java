@@ -16,17 +16,18 @@ import java.util.Optional;
  */
 public class Scooters {
     /**
-     *
      * @param request - no parameter is required
      * @param context - no param is required
      * @return all scooters data
      */
     @FunctionName("scooters")
-    public HttpResponseMessage scooters(@HttpTrigger(name = "scooters",
+    public HttpResponseMessage scooters(
+            @HttpTrigger(
+                    name = "scooters",
                     methods = {HttpMethod.GET},
                     authLevel = AuthorizationLevel.ANONYMOUS)
-                                                    HttpRequestMessage<Optional<String>> request,
-                                        final ExecutionContext context) {
+                    HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
         //TODO (shiranr) implement - committing only stubs. Next iteration will include implementation.
         return request.createResponseBuilder(HttpStatus.OK).body("Hello").build();
     }

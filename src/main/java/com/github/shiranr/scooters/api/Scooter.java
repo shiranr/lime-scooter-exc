@@ -20,7 +20,7 @@ public class Scooter {
                     methods = {HttpMethod.POST},
                     authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<String>> request,
-                    @BindingName("id") String id,
+            @BindingName("id") String id,
             final ExecutionContext context) {
         //TODO implement - committing only stubs. Next iteration will include implementation.
         return request.createResponseBuilder(HttpStatus.OK).build();
@@ -34,12 +34,11 @@ public class Scooter {
                     methods = {HttpMethod.POST},
                     authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<String>> request,
-                    @BindingName("id") String id,
+            @BindingName("id") String id,
             final ExecutionContext context) {
 
         //TODO implement - committing only stubs. Next iteration will include implementation.
         return request.createResponseBuilder(HttpStatus.OK).build();
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.github.shiranr.scooters;
+package com.github.shiranr.scooters.api;
 
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
@@ -7,7 +7,6 @@ import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
 import java.util.Optional;
-
 
 /**
  * Admin API - This section is restricted by permissions and should only be available to Admins.
