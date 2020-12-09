@@ -1,14 +1,14 @@
-#lime-scooter-exc
+# lime-scooter-exc
 
-##Introduction
+## Introduction
 This is an exercise for the CSE group. 
 We will have an application for a scooter company.\
 The application will allow you to get a list of all company scooters, 
 select one for a ride and checkout the scooter once you are done. 
 
-##API Endpoints
-###Available endpoints
-####Get Scooters
+## API Endpoints
+### Available endpoints
+#### Get Scooters
 Returns all company scooters.\
 Each scooter has a unique ID which you can use to query its data, battery percentage and location. 
 ```
@@ -38,7 +38,7 @@ GET /api/scooters
 
 ---
 
-####Get scooter
+#### Get scooter
 Get a specific scooter data containing the status of the scooter is it already checked or available:
 ```
 GET /api/scooter/{id}
@@ -64,7 +64,7 @@ Scooter does not exist:
 ```
 ---
 
-####Check in scooter
+#### Check in scooter
  
 ```
 POST /api/scooter/{id}/checkin
@@ -86,7 +86,7 @@ Scooter does not exist:
 
 ---
 
-####Check out scooter
+#### Check out scooter
 ```
 POST /api/scooter/{id}/checkout 
 ```
@@ -108,8 +108,8 @@ Scooter does not exist:
 
 
 ---
-###Admin 
-####Scooter history
+### Admin 
+#### Scooter history
 ```
 GET /api/scooter/{id}/history
 ```
