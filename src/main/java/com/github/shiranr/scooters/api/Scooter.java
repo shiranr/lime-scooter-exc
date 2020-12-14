@@ -12,6 +12,11 @@ import java.util.Optional;
  * Scooter API - a public API for all type of users to manage a single scooter
  */
 public class Scooter {
+    /**
+     * check in a scooter so it will be yours for riding
+     * @param id - the id of the scooter we would like to check in
+     * @return success or failure of checking in the scooter
+     */
     @FunctionName("checkin")
     public HttpResponseMessage checkin(
             @HttpTrigger(
@@ -26,6 +31,11 @@ public class Scooter {
         return request.createResponseBuilder(HttpStatus.OK).build();
     }
 
+    /**
+     *  checkout the scooter once you are done riding it and others can have it
+     * @param id - the id of the scooter we would like to check out
+     * @return success or failure of checking out the scooter
+     */
     @FunctionName("checkout")
     public HttpResponseMessage checkout(
             @HttpTrigger(

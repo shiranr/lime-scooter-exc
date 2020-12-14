@@ -12,7 +12,11 @@ import java.util.Optional;
  * Admin API - This section is restricted by permissions and should only be available to Admins.
  */
 public class Admin {
-
+    /**
+     *  This method returns the history of a specific scooter
+     * @param id -  the scooter id we would like to get the history for
+     * @return return the scooter data and its history
+     */
     @FunctionName("history")
     public HttpResponseMessage history(
             @HttpTrigger(name = "history",
@@ -27,6 +31,11 @@ public class Admin {
         return request.createResponseBuilder(HttpStatus.OK).body(id).build();
     }
 
+    /**
+     * This method creates a defined amount of scooters with random data
+     * @param amount - the amount of scooters we would like to create in the DB.
+     * @return 200 ok when done
+     */
     @FunctionName("create")
     public HttpResponseMessage create(
             @HttpTrigger(name = "create",
