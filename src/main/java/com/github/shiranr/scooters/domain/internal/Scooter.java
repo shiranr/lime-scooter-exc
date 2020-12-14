@@ -1,6 +1,5 @@
 package com.github.shiranr.scooters.domain.internal;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,12 +17,12 @@ public class Scooter {
     //The time the scooter was checked in (to be used)
     long checkedIn;
     //The scooter history of check in and out.
-    ArrayList<History> history;
+    ArrayList<HistoryRecord> history;
 
     public Scooter() {
     }
 
-    public Scooter(String id, int battery, boolean checked, long checkedIn, ArrayList<History> history) {
+    public Scooter(String id, int battery, boolean checked, long checkedIn, ArrayList<HistoryRecord> history) {
         this.id = id;
         this.battery = battery;
         this.checked = checked;
@@ -47,7 +46,7 @@ public class Scooter {
         return checkedIn;
     }
 
-    public ArrayList<History> getHistory() {
+    public ArrayList<HistoryRecord> getHistory() {
         return history;
     }
 
@@ -60,7 +59,7 @@ public class Scooter {
     }
 
     public void addHistory(long checkedIn) {
-        History history = new History(checkedIn, new Date().getTime());
-        this.history.add(history);
+        HistoryRecord record = new HistoryRecord(checkedIn, new Date().getTime());
+        this.history.add(record);
     }
 }

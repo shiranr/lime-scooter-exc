@@ -4,8 +4,11 @@ import com.azure.cosmos.models.CosmosItemResponse;
 import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.util.CosmosPagedIterable;
 import com.github.shiranr.scooters.domain.internal.Scooter;
+import com.github.shiranr.scooters.exceptions.InvalidIDException;
 
 import java.util.Optional;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 import static java.net.HttpURLConnection.HTTP_ACCEPTED;
 import static java.net.HttpURLConnection.HTTP_CREATED;
@@ -14,6 +17,7 @@ import static java.net.HttpURLConnection.HTTP_OK;
 public class CosmosClient implements Client<Scooter>{
 
     private Connection connection;
+    Logger logger = Logger.getLogger(CosmosClient.class.getName());
 
     public CosmosClient(Connection connection) {
         this.connection = connection;
@@ -34,7 +38,7 @@ public class CosmosClient implements Client<Scooter>{
         if (first.isPresent()) {
             return (Scooter) first.get();
         }
-        return null;
+        throw new InvalidIDException("failed to find scooter. invalid id " + id);
     }
 
     public Boolean update(Scooter scooter) {
@@ -45,7 +49,8 @@ public class CosmosClient implements Client<Scooter>{
     public void create(Scooter scooter) {
         CosmosItemResponse itemResponse = connection.getContainer().createItem(scooter);
         if (!verifyStatusCode(itemResponse.getStatusCode())) {
-            System.out.println("failed to create a scooter with status code " + itemResponse.getStatusCode());
+            String error = "failed to create a scooter with status code " + itemResponse.getStatusCode();
+            logger.log(Level.WARNING, error);
         }
     }
 

@@ -20,7 +20,13 @@ public class Connection {
     private Connection() {
         if (client == null) {
             String endpoint = System.getenv("DB_HOST");
+            if (endpoint.equals("")) {
+                throw new IllegalArgumentException("failed to get DB endpoint");
+            }
             String password = System.getenv("DB_PASSWORD");
+            if (password.equals("")) {
+                throw new IllegalArgumentException("failed to get DB password");
+            }
             client = new CosmosClientBuilder()
                     .endpoint(endpoint)
                     .key(password)
