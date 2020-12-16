@@ -1,5 +1,10 @@
 package com.github.shiranr.scooters.api;
 
+import com.github.shiranr.scooters.db.Connection;
+import com.github.shiranr.scooters.db.CosmosClient;
+import com.github.shiranr.scooters.domain.internal.Scooter;
+import com.github.shiranr.scooters.service.ScootersService;
+import com.github.shiranr.scooters.service.Service;
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
 import com.microsoft.azure.functions.HttpRequestMessage;
@@ -15,6 +20,9 @@ import java.util.Optional;
  * Scooters API - API to manage all scooters. This API is public for all users.
  */
 public class Scooters {
+    
+    //I do not like this but for now I am not using spring so this is not injected.
+    Service service = new ScootersService(new CosmosClient(Connection.instance()));
     /**
      * @return all scooters data
      */
@@ -26,7 +34,7 @@ public class Scooters {
                     authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
-        //TODO (shiranr) implement - committing only stubs. Next iteration will include implementation.
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello").build();
+        Scooter[] scooters = service.GetAllScooters();
+        return request.createResponseBuilder(HttpStatus.OK).body(scooters).build();
     }
 }

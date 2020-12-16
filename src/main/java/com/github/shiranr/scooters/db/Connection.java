@@ -14,17 +14,17 @@ public class Connection {
     private static CosmosClient client;
     private static Connection connection;
 
-    private static String DB_NAME = "lime";
-    private static String CONTAINER_NAME = "scooters";
+    private final static String DB_NAME = "lime";
+    private final static String CONTAINER_NAME = "scooters";
 
     private Connection() {
         if (client == null) {
             String endpoint = System.getenv("DB_HOST");
-            if (endpoint.equals("")) {
+            if (endpoint.isEmpty()) {
                 throw new IllegalArgumentException("failed to get DB endpoint");
             }
             String password = System.getenv("DB_PASSWORD");
-            if (password.equals("")) {
+            if (password.isEmpty()) {
                 throw new IllegalArgumentException("failed to get DB password");
             }
             client = new CosmosClientBuilder()
