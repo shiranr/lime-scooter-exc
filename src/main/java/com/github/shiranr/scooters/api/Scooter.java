@@ -38,7 +38,7 @@ public class Scooter {
             @BindingName("id") String id,
             final ExecutionContext context) {
         if (id.isEmpty()) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("id can not be empty").build();
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("ID can not be empty").build();
         }
         try {
             boolean success = service.CheckInScooter(id);
@@ -69,7 +69,7 @@ public class Scooter {
             @BindingName("id") String id,
             final ExecutionContext context) {
         if (id.isEmpty()) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("id can not be empty").build();
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("ID can not be empty").build();
         }
         try {
             boolean success = service.CheckOutScooter(id);

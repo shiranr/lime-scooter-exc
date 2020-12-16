@@ -1,4 +1,4 @@
-package com.github.shiranr.scooters.domain.internal;
+package com.github.shiranr.scooters.domain;
 
 /**
  * History of a scooter is composed from check in and out of the scooter by a user

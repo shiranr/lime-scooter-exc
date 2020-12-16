@@ -1,4 +1,4 @@
-package com.github.shiranr.scooters.domain.internal;
+package com.github.shiranr.scooters.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,6 +6,7 @@ import java.util.Date;
 /**
  * This is a scooter entity, it represents scooter both in the DB and FE.
  * In the future, should be separated into 2 entities so the DB scheme and FE scheme won't be coupled.
+ * IMPORTANT!!!! currently this is both DB object and FE object, this is NOT a good practice.
  */
 public class Scooter {
     //Unique ID per scooter

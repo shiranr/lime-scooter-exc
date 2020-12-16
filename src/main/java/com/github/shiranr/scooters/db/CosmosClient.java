@@ -3,7 +3,7 @@ package com.github.shiranr.scooters.db;
 import com.azure.cosmos.models.CosmosItemResponse;
 import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.util.CosmosPagedIterable;
-import com.github.shiranr.scooters.domain.internal.Scooter;
+import com.github.shiranr.scooters.domain.Scooter;
 import com.github.shiranr.scooters.exceptions.InvalidIDException;
 
 import java.util.Optional;

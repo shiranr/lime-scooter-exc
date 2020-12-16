@@ -2,7 +2,7 @@ package com.github.shiranr.scooters.api;
 
 import com.github.shiranr.scooters.db.Connection;
 import com.github.shiranr.scooters.db.CosmosClient;
-import com.github.shiranr.scooters.domain.internal.Scooter;
+import com.github.shiranr.scooters.domain.Scooter;
 import com.github.shiranr.scooters.service.ScootersService;
 import com.github.shiranr.scooters.service.Service;
 import com.microsoft.azure.functions.*;

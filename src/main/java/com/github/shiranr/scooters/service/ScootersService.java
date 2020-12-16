@@ -1,7 +1,7 @@
 package com.github.shiranr.scooters.service;
 
 import com.github.shiranr.scooters.db.Client;
-import com.github.shiranr.scooters.domain.internal.Scooter;
+import com.github.shiranr.scooters.domain.Scooter;
 import com.github.shiranr.scooters.exceptions.InvalidStateException;
 
 import java.util.ArrayList;
@@ -50,9 +50,8 @@ public class ScootersService implements Service {
         return client.get(id);
     }
 
-    public com.github.shiranr.scooters.domain.external.Scooter GetScooterPublic(String id) {
-        Scooter scooter = client.get(id);
-        return new com.github.shiranr.scooters.domain.external.Scooter(scooter);
+    public Scooter GetScooterPublic(String id) {
+        return client.get(id);
     }
 
     public Scooter[] GetAllScooters() {

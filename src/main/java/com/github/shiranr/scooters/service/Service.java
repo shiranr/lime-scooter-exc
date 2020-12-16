@@ -1,6 +1,6 @@
 package com.github.shiranr.scooters.service;
 
-import com.github.shiranr.scooters.domain.internal.Scooter;
+import com.github.shiranr.scooters.domain.Scooter;
 
 public interface Service {
     void CreateScooter(String id, int battery);
