@@ -8,6 +8,9 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.github.shiranr.scooters.domain.Scooter;
 
+/**
+ * Scooter mixin is a jackson lib filter. This is for removing history from a public scooter object.
+ */
 public class ScooterMixin {
     public String scooterMixin(Scooter[] scooter) throws JsonProcessingException {
         String[] propertiesToExclude = {"history"};
