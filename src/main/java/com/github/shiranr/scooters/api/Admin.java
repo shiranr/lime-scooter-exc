@@ -34,7 +34,7 @@ public class Admin {
                     route = "scooter/{id}/history",
                     name = "history",
                     methods = {HttpMethod.GET},
-                    authLevel = AuthorizationLevel.ADMIN)
+                    authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<String>> request,
             @BindingName("id") String id,
             final ExecutionContext context) {
@@ -53,7 +53,7 @@ public class Admin {
                     route = "scooter/{amount}",
                     name = "history",
                     methods = {HttpMethod.POST},
-                    authLevel = AuthorizationLevel.ADMIN)
+                    authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<String>> request,
             @BindingName("amount") int amount,
             final ExecutionContext context) {
