@@ -14,6 +14,7 @@ public class Connection {
     private static CosmosClient client;
     private static Connection connection;
 
+    //TODO this needs to be moved to a config file.
     private final static String DB_NAME = "lime";
     private final static String CONTAINER_NAME = "scooters";
 

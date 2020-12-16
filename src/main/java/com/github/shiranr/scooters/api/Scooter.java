@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 public class Scooter {
 
-    //I do not like this but for now I am not using spring so this is not injected.
+    //TODO need to inject the service
     Service service = new ScootersService(new CosmosClient(Connection.instance()));
 
     /**

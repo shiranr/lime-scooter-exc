@@ -22,8 +22,8 @@ import java.util.Optional;
  * Scooters API - API to manage all scooters. This API is public for all users.
  */
 public class Scooters {
-    
-    //I do not like this but for now I am not using spring so this is not injected.
+
+    //TODO need to inject the service
     Service service = new ScootersService(new CosmosClient(Connection.instance()));
     /**
      * @return all scooters data
@@ -37,11 +37,12 @@ public class Scooters {
                     HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         Scooter[] scooters = service.GetAllScooters();
-        String scootersString = "";
+        String scootersString;
         try {
             scootersString = new ScooterMixin().scooterMixin(scooters);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
+            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
         return request.createResponseBuilder(HttpStatus.OK).body(scootersString).build();
     }
