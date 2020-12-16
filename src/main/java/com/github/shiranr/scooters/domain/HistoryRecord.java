@@ -11,4 +11,15 @@ public class HistoryRecord {
         this.checkedIn = checkedIn;
         this.checkedOut = checkedOut;
     }
+
+    public HistoryRecord() {
+    }
+
+    public long getCheckedIn() {
+        return checkedIn;
+    }
+
+    public long getCheckedOut() {
+        return checkedOut;
+    }
 }
