@@ -16,8 +16,6 @@ import java.util.Optional;
  */
 public class Scooters {
     /**
-     * @param request - no parameter is required
-     * @param context - no param is required
      * @return all scooters data
      */
     @FunctionName("scooters")

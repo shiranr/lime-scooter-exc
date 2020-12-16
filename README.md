@@ -23,14 +23,18 @@ GET /api/scooters
       {
         "id": "507f1f77bcf86cd799439011",
         "battery_percentage": 12,
-        "lat": 34.787948,
-        "lng": 32.114154
+        "location":{
+          "lat": 34.787948,
+          "lng": 32.114154 
+        }
       },
       {
         "id": "507f191e810c19729de860ea",
         "battery_percentage": 90,
-        "lat": 34.787948,
-        "lng": 32.114154
+        "location": {
+          "lat": 34.787948,
+          "lng": 32.114154
+        }
       }
   ]
 }
@@ -51,8 +55,10 @@ Response:
 {
     "id": "507f1f77bcf86cd799439011",
     "battery_percentage": 12,
-    "lat": 34.787948,
-    "lng": 32.114154,
+    "location": {
+      "lat": 34.787948,
+      "lng": 32.114154
+    },
     "checked": true
  }
 ```
@@ -121,8 +127,10 @@ Response:
 {
     "id": "507f1f77bcf86cd799439011",
     "battery_percentage": 12,
-    "lat": 34.787948,
-    "lng": 32.114154,
+    "location": {
+      "lat": 34.787948,
+      "lng": 32.114154
+    },
     "checked": true,
     "history": [
       {
