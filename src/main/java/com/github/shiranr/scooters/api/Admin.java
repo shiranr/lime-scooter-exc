@@ -57,6 +57,8 @@ public class Admin {
                     HttpRequestMessage<Optional<String>> request,
             @BindingName("amount") int amount,
             final ExecutionContext context) {
+         // This loop is a nice way to do for loop from 0 to the amount of scooters we would like to create
+         // Each scooter is created with a random id.
         IntStream.range(0, amount).mapToObj(i -> random()).forEachOrdered(id -> {
             int battery = randomInt(100);
             service.CreateScooter(id, battery);
