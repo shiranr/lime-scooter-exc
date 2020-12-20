@@ -30,16 +30,31 @@ def static getVariable(String propName) {
 }
 
 azurefunctions {
-    // subscription = '<your subscription id>'
-    resourceGroup = 'java-functions-group'
-    appName = 'shiranr-lime-scooter-exc-1607508206000' // please rename the function name
-    pricingTier = 'Consumption' // refers https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-functions-maven-plugin#supported-pricing-tiers for all valid values
+    subscription = getVariable('subscription')
+    resourceGroup = getVariable('rgName')
+    appName = 'shiranr-lime-scooter-exc'
+    pricingTier = 'Consumption'
     region = 'westus'
-    runtime {
-        os = 'windows'
+    appSettings {
+        APPLICATIONINSIGHTS_CONNECTION_STRING = getVariable('connectionString')
+        FUNCTIONS_EXTENSION_VERSION = '~3'
+        APPINSIGHTS_INSTRUMENTATIONKEY = getVariable('insightsKey')
+        FUNCTIONS_WORKER_RUNTIME = 'java'
+        AzureWebJobsStorage = getVariable('webJobStorage')
+        WEBSITE_CONTENTSHARE = getVariable('contentShare')
+        WEBSITE_CONTENTAZUREFILECONNECTIONSTRING = getVariable('fileConnectionString')
+        DB_HOST = getVariable('dbHost')
+        DB_PASSWORD = getVariable('dbPassword')
     }
-    // appSettings {
-    //    key = 'value'
-    // }
-    // localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
+    authentication {
+        authentication {
+            type = 'azure_cli'
+        }
+        runtime {
+            os = 'windows'
+        }
+        deployment {
+            type = 'run_from_blob'
+        }
+    }
 }
