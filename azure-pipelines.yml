@@ -11,13 +11,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzureFunctionApp@1
-  inputs:
-    appType: 'functionApp'
-    appName: 'shiranr-lime-scooter-exc'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
-    azureSubscription: $(connection)
 - task: Gradle@2
   inputs:
     workingDirectory: ''
@@ -28,4 +21,12 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'azureFunctionsPackage azureFunctionsDeploy'
+    tasks: 'azureFunctionsPackageZip'
+- task: AzureFunctionApp@1
+  inputs:
+    appType: 'functionApp'
+    appName: 'shiranr-lime-scooter-exc'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
+    azureSubscription: $(connection)
+
