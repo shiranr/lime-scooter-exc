@@ -17,7 +17,7 @@ steps:
     appName: 'shiranr-lime-scooter-exc'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
-    azureSubscription: $(subscription)
+    azureSubscription: $(connection)
 - task: Gradle@2
   inputs:
     workingDirectory: ''
