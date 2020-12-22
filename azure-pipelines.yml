@@ -25,6 +25,7 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'azureFunctionsPackageZip'
 - task: AzureFunctionApp@1
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   inputs:
     appType: 'functionApp'
     appName: 'shiranr-lime-scooter-exc'
