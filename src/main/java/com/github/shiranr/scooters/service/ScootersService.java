@@ -26,6 +26,7 @@ public class ScootersService implements Service {
 
     public boolean CheckInScooter(String id) throws IllegalArgumentException {
         Scooter scooter = client.get(id);
+        //TODO not thread safe
         if (scooter.isChecked()) {
             throw new InvalidStateException("failed to check in scooter. scooter " + id + " already checked in");
         }
