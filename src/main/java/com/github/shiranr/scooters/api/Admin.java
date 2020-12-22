@@ -38,7 +38,7 @@ public class Admin {
                     HttpRequestMessage<Optional<String>> request,
             @BindingName("id") String id,
             final ExecutionContext context) {
-        Scooter scooter = service.GetScooterAdmin(id);
+        Scooter scooter = service.GetScooter(id);
         return request.createResponseBuilder(HttpStatus.OK).body(scooter).build();
     }
 
