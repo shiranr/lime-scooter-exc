@@ -47,11 +47,7 @@ public class ScootersService implements Service {
         return client.update(scooter);
     }
 
-    public Scooter GetScooterAdmin(String id) {
-        return client.get(id);
-    }
-
-    public Scooter GetScooterPublic(String id) {
+    public Scooter GetScooter(String id) {
         return client.get(id);
     }
 
